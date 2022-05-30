@@ -1,0 +1,128 @@
+.nav {
+    height: 75px;
+    width: 100%;
+    background-color: #383737;
+    position: relative;
+    border-bottom: 1px solid ;
+  }
+  
+  .nav > .nav-header {
+    display: inline;
+  }
+  
+  .nav > .nav-header > .nav-title {
+    /* display: inline-block; */
+    width :250px;
+    height: 80px;
+    float: left;
+    font-size: 22px;
+    color: #fff;
+    margin-left: 20px;
+    position: relative;
+  }
+  
+  .nav > .nav-btn {
+    /* height: 100%; */
+    display: none;
+  }
+  
+  .nav > .nav-links {
+    display: inline;
+    float: right;
+    font-size: 18px;
+  }
+  
+  .nav > .nav-links > a {
+    display: inline-block;
+    padding: 27px 15px 27px 15px;
+    text-decoration: none;
+    color: #efefef;
+  }
+  
+  .nav > .nav-links > a:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  
+  .nav > #nav-check {
+    /* height: 600px; */
+    display: none;
+  }
+  .logo{
+    padding-left: 5px;
+    margin-top: 10px;
+    width: 90%;
+    height: 60px;
+    position: absolute;
+    top: 0px;
+  }
+
+
+
+
+@media only screen and (max-width: 1010px) {
+  .nav{
+    width: 100%;
+  }
+  .nav > .nav-btn {
+    display: inline-block;
+    position: absolute;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    right: 0px;
+    top: 0px;
+  }
+  .nav > .nav-btn > label {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    padding: 13px;
+  }
+  .nav > .nav-btn > label:hover,.nav  #nav-check:checked ~ .nav-btn > label {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  .nav > .nav-btn > label > span {
+    display: block;
+    width: 25px;
+    height: 10px;
+    border-top: 2px solid #eee;
+  }
+  .nav > .nav-header > .nav-title{
+    margin-left: 5px;
+  }
+  .nav > .nav-links {
+    position: absolute;
+    display: block;
+    width: 100%;
+    background-color: #333;
+    height: 0px;
+    transition: all 0.3s ease-in;
+    overflow-y: hidden;
+    top: 75px;
+    left: 0px;
+    z-index: 99;
+  }
+  .nav > .nav-links > a {
+    display: block;
+    width: 100%;
+  }
+  .nav > #nav-check:not(:checked) ~ .nav-links {
+    height: 0px;
+  }
+  .nav > #nav-check:checked ~ .nav-links {
+    height: calc(100vh - 50px);
+    overflow-y: auto;
+  }
+
+  .logo{
+      margin-top: 0cm;
+      height: 45px;
+      width: 70%;
+      top: 10px;
+  }
+}
+
+
+
+  @media (max-width:600px) {
+
+  }
