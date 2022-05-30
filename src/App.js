@@ -8,6 +8,7 @@ import {
   useLocation,
 } from "react-router-dom";
 import { useState, createContext, useEffect, useRef } from "react";
+import { darkTheme, GlobalStyles } from "./themes";
 import styled, { ThemeProvider } from "styled-components";
 import Landing from "./pages/Landing/Landing";
 import Navbar from "./components/Navbar/Navbar";
@@ -19,8 +20,8 @@ const StyledApp = styled.div``;
 
 function App() {
   return (
-    // <ThemeProvider theme={darkTheme}>
-    //   <GlobalStyles />
+    <ThemeProvider theme={darkTheme}>
+    {/* //   <GlobalStyles /> */}
       <StyledApp>
         <div className="App">
           <Router>
@@ -29,7 +30,7 @@ function App() {
           </Router>
         </div>
       </StyledApp>
-    // </ThemeProvider>
+     </ThemeProvider>
   );
 }
 
