@@ -13,6 +13,24 @@ function FormField({
 }) {
     const renderFormField = () => {
         switch (type) {
+            case "date":
+                return (
+                    <div className={`${styles.form_container}`}>
+                        <p className={`${styles.heading}`}>{heading}</p>
+                        <input
+                            type={type}
+                            value={value[name]}
+                            onChange={(e) =>
+                                setter({
+                                    key: name,
+                                    value: e.target.value,
+                                    memberNumber: misc?.memberNumber,
+                                })
+                            }
+                        />
+                        <p className={`${styles.info}`}>{info}</p>
+                    </div>
+                );
             case "text":
                 return (
                     <div className={`${styles.form_container}`}>
@@ -77,6 +95,24 @@ function FormField({
                     </div>
                 );
             case "tel":
+                return (
+                    <div className={`${styles.form_container}`}>
+                        <p className={`${styles.heading}`}>{heading}</p>
+                        <input
+                            type={type}
+                            value={value[name]}
+                            onChange={(e) =>
+                                setter({
+                                    key: name,
+                                    value: e.target.value,
+                                    memberNumber: misc?.memberNumber,
+                                })
+                            }
+                        />
+                        <p className={`${styles.info}`}>{info}</p>
+                    </div>
+                );
+            case "number":
                 return (
                     <div className={`${styles.form_container}`}>
                         <p className={`${styles.heading}`}>{heading}</p>

@@ -50,10 +50,10 @@ function Navbar() {
   </div>
   
   <div className="nav-links">
-    <a href="/market">Account</a>
-    <a href='/profile'>Loans</a>
-    <a href="/instructions">Pay</a>
-    <a href="/rules" target="_blank">History</a>
+    <a href="/account">Account</a>
+    <a href='/loans'>Loans</a>
+    <a href="/instapay">Pay</a>
+    <a href="/history" target="_blank">History</a>
     <a href="/contact">Contact  </a>
     {/* <a href="mailto:someone@example.com" target="_blank">Feedback</a> */}
     {/* <a href="/login">Login</a> */}

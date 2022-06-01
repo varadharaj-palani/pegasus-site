@@ -15,13 +15,14 @@ import Navbar from "./components/Navbar/Navbar";
 import Profile from "./pages/Profile/Profile";
 import Contact from "./pages/Contact/Contact";
 import Login from "./pages/Login/Login";
+import AddAccount from "./pages/AddAccount/AddAccount"
 import PageNotFound from "./pages/PageNotFound/PageNotFound";
 const StyledApp = styled.div``;
 
 function App() {
   return (
     <ThemeProvider theme={darkTheme}>
-    {/* //   <GlobalStyles /> */}
+      {/* //   <GlobalStyles /> */}
       <StyledApp>
         <div className="App">
           <Router>
@@ -30,7 +31,7 @@ function App() {
           </Router>
         </div>
       </StyledApp>
-     </ThemeProvider>
+    </ThemeProvider>
   );
 }
 
@@ -41,6 +42,7 @@ const AllRoutes = () => {
       <Route path="/profile" element={<Profile />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/addAccount" element={<AddAccount />} />
       <Route path="/*" element={<PageNotFound />} />
     </Routes>
   );
