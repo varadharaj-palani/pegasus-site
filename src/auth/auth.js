@@ -21,3 +21,21 @@ export const apiAddAccount = async (data) => {
     return error.response;
   }
 };
+
+export const apiDisplayAccount = async (config) => {
+  try {
+    const response = await api.get("accountList", config);
+    return response;
+  } catch (error) {
+    return error.response;
+  }
+};
+
+export const apiGetAccount = async (config) => {
+  try {
+    const response = await api.get("account", config);
+    return response;
+  } catch (error) {
+    return error.response;
+  }
+};

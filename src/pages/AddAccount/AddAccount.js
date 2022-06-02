@@ -12,28 +12,16 @@ import Page_transition from "../../components/Animation/Transition";
 import Heading from "../../components/Heading/Heading.js";
 import { apiAddAccount } from "../../auth/auth";
 import { ReactNotifications, Store } from 'react-notifications-component'
-import { Navigate } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
+import { toastNotification } from "../../components/Notification/Notification";
+import 'react-notifications-component/dist/theme.css';
 
 const axios = require('axios');
 
-const showMessage = (title, type) => {
-    Store.addNotification({
-        title: title,
-        type: type,
-        insert: "bottom",
-        container: "top-right",
-        animationIn: ["animate__animated", "animate__fadeIn"],
-        animationOut: ["animate__animated", "animate__fadeOut"],
-        dismiss: {
-            duration: 3000,
-            onScreen: true
-        }
-    })
-}
 
 
 const Login = () => {
+    var navigate=useNavigate();
     const loginDetailsFormat = {
         fname: "",
         lname: "",
@@ -52,6 +40,7 @@ const Login = () => {
         depdate: "",
         maturdate: "",
         accType: "",
+        password: "",
     }
     const clickedSubmit = async () => {
 
@@ -62,25 +51,26 @@ const Login = () => {
             ...loginDetails,
         });
 
-        
+        console.log(resp.data)
         if (resp === undefined) {
-            showMessage("Please try again after sometime", "danger")
+            Store.addNotification({...toastNotification,message:"Error Undefined"})
         } else {
             if (resp.status === 200) {
                 // console.log(auth);
                 // console.log(resp.data.message);
-                showMessage(resp.data.message, resp.data.flag);
-                Navigate('./landing');
+                // showMessage(resp.data.message, resp.data.flag);
+                Store.addNotification({...toastNotification,message:resp.data.message,type:resp.data.flag});
+                navigate('/');
                 // setloader(false);
 
             } else if (resp.status >= 400 && resp.status < 500) {
                 console.log(resp.data.message);
-                showMessage(resp.data.message, resp.data.flag);
+                Store.addNotification({...toastNotification,message:resp.data.message,type:resp.data.flag})
                 setloader(false);
 
             } else if (resp.status >= 500 && resp.status < 600) {
                 console.log(resp.data.message);
-                showMessage(resp.data.message, resp.data.flag);
+                Store.addNotification({...toastNotification,message:resp.data.message,type:resp.data.flag})
                 setloader(false);
 
             }

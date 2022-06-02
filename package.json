@@ -12,6 +12,7 @@
     "@testing-library/user-event": "^13.5.0",
     "animate.css": "^4.1.1",
     "axios": "^0.26.1",
+    "bcryptjs": "^2.4.3",
     "framer-motion": "^6.3.4",
     "react": "^18.0.0",
     "react-advanced-news-ticker": "^1.0.1",

@@ -30,6 +30,11 @@ export const NEW_ACCOUNT_FORM_FIELDS = [
         name: "email"
     },
     {
+        type: "password",
+        heading: "Password",
+        name: "password"
+    },
+    {
         type: "text",
         heading: "Aadhar",
         name: "aadhar"

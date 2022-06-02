@@ -11,10 +11,15 @@ import { Modal } from "react-responsive-modal";
 import Page_transition from "../../components/Animation/Transition";
 import Heading from "../../components/Heading/Heading.js";
 import { apiLogin } from "../../auth/auth";
-
+import { useNavigate } from "react-router-dom";
+import { ReactNotifications, Store } from 'react-notifications-component'
+import { toastNotification } from "../../components/Notification/Notification";
+import 'react-notifications-component/dist/theme.css';
 const axios = require('axios');
 
 const Login = () => {
+  var navigate = useNavigate();
+
   const loginDetailsFormat = {
     email: "",
     pwd: ""
@@ -28,6 +33,27 @@ const Login = () => {
       ...loginDetails,
     });
     // window.location.href="/profile";
+    if (resp === undefined) {
+      Store.addNotification({ ...toastNotification, message: "Error Undefined" })
+    } else {
+      if (resp.status === 200) {
+        localStorage.setItem("email", resp.data.username);
+        Store.addNotification({ ...toastNotification, message: resp.data.message, type: resp.data.flag });
+        navigate('/');
+        // setloader(false);
+
+      } else if (resp.status >= 400 && resp.status < 500) {
+        console.log(resp.data.message);
+        Store.addNotification({ ...toastNotification, message: resp.data.message, type: resp.data.flag })
+        setloader(false);
+
+      } else if (resp.status >= 500 && resp.status < 600) {
+        console.log(resp.data.message);
+        Store.addNotification({ ...toastNotification, message: resp.data.message, type: resp.data.flag })
+        setloader(false);
+
+      }
+    }
 
   }
   const [loader, setloader] = useState(false);
@@ -66,7 +92,7 @@ const Login = () => {
                     );
                   })
                   }
-                  
+
                 </>
                 <div>
                   <Button text={"Login"} onClickMethod={clickedSubmit} color='rgb(255, 100, 0)' />
