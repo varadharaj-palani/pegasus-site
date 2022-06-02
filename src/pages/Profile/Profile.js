@@ -1,7 +1,11 @@
 import React from "react";
+import styles from "./Profile.module.css";
+import { approfile } from "../../auth/auth";
 function Profile() {
     return (
-        <h1>Profile</h1>
+        <div className={`${styles.displays}`}>
+        <h1>PROFILE</h1>
+        </div>
     )
 }
 
