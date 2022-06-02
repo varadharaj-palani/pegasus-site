@@ -40,6 +40,7 @@ const Login = () => {
         localStorage.setItem("email", resp.data.username);
         Store.addNotification({ ...toastNotification, message: resp.data.message, type: resp.data.flag });
         navigate('/');
+        window.location="/";
         // setloader(false);
 
       } else if (resp.status >= 400 && resp.status < 500) {

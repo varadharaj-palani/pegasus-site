@@ -31,9 +31,9 @@ export const apiDisplayAccount = async (config) => {
   }
 };
 
-export const apiGetAccount = async (config) => {
+export const apiGetAccount = async (config,type,acct) => {
   try {
-    const response = await api.get("account", config);
+    const response = await api.get(`account/${type}/${acct}`, config);
     return response;
   } catch (error) {
     return error.response;
