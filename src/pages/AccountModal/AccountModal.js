@@ -2,17 +2,39 @@ import React, { useState, useEffect } from "react";
 import { apiDisplayAccount } from "../../auth/auth";
 import styles from "../AccountModal/AccountModal.module.css";
 import { useNavigate } from "react-router-dom";
+import { useParams, Link } from 'react-router-dom'
 import Heading from "../../components/Heading/Heading";
+import { ReactNotifications, Store } from 'react-notifications-component'
+import { toastNotification } from "../../components/Notification/Notification";
+import 'react-notifications-component/dist/theme.css';
 
 
 function Print(props) {
     console.log(props)
-    return (
-        <div className={`${styles.itemRow}`}>
-            <p className={`${styles.itemHeader}`}>{props.atom.ACCNO}</p>
-            <p className={`${styles.itemContent}`}>{props.atom.ACCTYPE}</p>
-        </div>
-    )
+    var acct;
+    if (props.atom.ACCTYPE == "Savings") {
+        acct = props.atom.ACCNO;
+        return (
+            <div className={`${styles.itemRow}`}>
+                <Link to={`../account/savings/${acct}`}>
+                    <p className={`${styles.itemHeader}`}>{props.atom.ACCNO}</p>
+                    <p className={`${styles.itemContent}`}>{props.atom.ACCTYPE}</p>
+                </Link>
+            </div>
+        )
+    }
+    else {
+        acct = props.atom.ACCNO;
+        return (
+            <div className={`${styles.itemRow}`}>
+                <Link to={`../account/fd/${acct}`}>
+                    <p className={`${styles.itemHeader}`}>{props.atom.ACCNO}</p>
+                    <p className={`${styles.itemContent}`}>{props.atom.ACCTYPE}</p>
+                </Link>
+            </div>
+        )
+    }
+
 }
 
 function DispData(props) {
@@ -26,6 +48,10 @@ function DispData(props) {
 }
 
 function AccountModal() {
+    if (localStorage.getItem('email') == null) {
+        // Store.addNotification({ ...toastNotification, message: "Error Undefined" });
+        window.location = '/login';
+    }
     var navigate = useNavigate();
 
     const config = {

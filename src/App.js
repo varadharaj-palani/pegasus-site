@@ -18,7 +18,8 @@ import Profile from "./pages/Profile/Profile";
 import Contact from "./pages/Contact/Contact";
 import Login from "./pages/Login/Login";
 import AddAccount from "./pages/AddAccount/AddAccount"
-import Account from "./pages/Account/Account";
+import FdAccount from "./pages/Account/FdAccount";
+import SavAccount from "./pages/Account/SavAccount";
 import AccountModal from "./pages/AccountModal/AccountModal";
 import PageNotFound from "./pages/PageNotFound/PageNotFound";
 const StyledApp = styled.div``;
@@ -47,7 +48,8 @@ const AllRoutes = () => {
       <Route path="/contact" element={<Contact />} />
       <Route path="/login" element={<Login />} />
       <Route path="/addAccount" element={<AddAccount />} />
-      <Route path="/account" element={<Account />} />
+      <Route path="/account/savings/:acct" element={<SavAccount />} />
+      <Route path="/account/fd/:acct" element={<FdAccount />} />
       <Route path="/accountModal" element={<AccountModal />} />
       <Route path="/*" element={<PageNotFound />} />
     </Routes>

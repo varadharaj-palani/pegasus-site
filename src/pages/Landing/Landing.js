@@ -1,5 +1,6 @@
 import React from "react";
-import AccountModal from "../AccountModal/AccountModal";
+import { useNavigate } from "react-router-dom";
+
 function Landing() {
     return (
         <>

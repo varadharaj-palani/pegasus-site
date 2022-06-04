@@ -12,7 +12,7 @@ function Navbar() {
   const [val, setState] = React.useState(true);
 
   var bool;
-  if (localStorage.getItem('token') == null) {
+  if (localStorage.getItem('email') == null) {
     bool = false;
   } else {
     bool = true;
@@ -21,9 +21,9 @@ function Navbar() {
   var prof;
 
   if (bool) {
-    prof = '/profile';
+    prof = "Logout"
   } else {
-    prof = '/login';
+    prof = "Login";
   }
 
   return (
@@ -55,6 +55,7 @@ function Navbar() {
           <a href="/instapay">Pay</a>
           <a href="/history" target="_blank">History</a>
           <a href="/contact">Contact  </a>
+          <a href='/login' onClick={() => {if(bool) {localStorage.clear()} setState(!val)}}>{prof}</a>
           {/* <a href="mailto:someone@example.com" target="_blank">Feedback</a> */}
 
 

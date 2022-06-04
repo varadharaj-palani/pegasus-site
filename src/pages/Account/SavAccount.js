@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import { apiGetAccount } from "../../auth/auth";
 import styles from "../Account/Account.module.css";
 import Heading from "../../components/Heading/Heading";
-import 'react-notifications-component/dist/theme.css';
+import { useParams } from 'react-router-dom'
 
-function Account() {
+function SavAccount() {
+    let { acct } = useParams();
+
     const config = {
         headers: {
             authorization: localStorage.getItem("email"),
@@ -12,15 +14,16 @@ function Account() {
     };
     const dataFormat = {
         'customer': {},
-        'account1': {},
-        'account2': {},
+        'account': {},
         'branch': {}
     };
     const [data, setData] = useState(dataFormat);
+    const [bit, setBit] = useState(false);
 
     const callapi = async () => {
         console.log(config)
-        const resp = await apiGetAccount(config);
+        console.log(acct);
+        const resp = await apiGetAccount(config, 'savings', acct);
         if (resp === undefined) {
             console.log('Error Try Again')
         }
@@ -42,20 +45,21 @@ function Account() {
         console.log("useEffect");
         callapi().then(() => {
             console.log(data);
+            setBit(!bit)
         });
     }, [])
     return (
         <div className={`${styles.wrapper}`}>
-            <Heading text="ACCOUNT DETAILS" />
-            {(<div className={`${styles.maincontainer}`}>
+            <Heading text="ACCOUNT" />
+            {bit && (<div className={`${styles.maincontainer}`}>
                 <div className={`${styles.profilecontainer}`}>
                     <div className={`${styles.itemRow}`}>
                         <p className={`${styles.itemHeader}`}>Account Number</p>
-                        <p className={`${styles.itemContent}`}>{data.account1.ACCNO}</p>
+                        <p className={`${styles.itemContent}`}>{data.account.ACCNO}</p>
                     </div>
                     <div className={`${styles.itemRow}`}>
                         <p className={`${styles.itemHeader}`}>Account Type</p>
-                        <p className={`${styles.itemContent}`}>{data.account1.ACCTYPE}</p>
+                        <p className={`${styles.itemContent}`}>Savings</p>
                     </div>
                     <div className={`${styles.itemRow}`}>
                         <p className={`${styles.itemHeader}`}>Branch</p>
@@ -67,11 +71,11 @@ function Account() {
                     </div>
                     <div className={`${styles.itemRow}`}>
                         <p className={`${styles.itemHeader}`}>Balance</p>
-                        <p className={`${styles.itemContent}`}>{data.account2.BALANCE}</p>
+                        <p className={`${styles.itemContent}`}>{data.account.BALANCE}</p>
                     </div>
                     <div className={`${styles.itemRow}`}>
                         <p className={`${styles.itemHeader}`}>Status</p>
-                        <p className={`${styles.itemContent}`}>{data.account2.STATUS}</p>
+                        <p className={`${styles.itemContent}`}>{data.account.STATUS}</p>
                     </div>
                 </div>
             </div>)}
@@ -79,4 +83,4 @@ function Account() {
     )
 }
 
-export default Account;
+export default SavAccount;
