@@ -1,4 +1,4 @@
-export const NEW_ACCOUNT_FORM_FIELDS = [
+export const LOAN_ACCOUNT_FORM_FIELDS = [
     {
         type: "text",
         heading: "First Name",
@@ -8,6 +8,11 @@ export const NEW_ACCOUNT_FORM_FIELDS = [
         type: "text",
         heading: "Last Name",
         name: "lname"
+    },
+    {
+        type: "text",
+        heading: "Account No",
+        name: "accountno"
     },
     {
         type: "date",
@@ -28,11 +33,6 @@ export const NEW_ACCOUNT_FORM_FIELDS = [
         type: "text",
         heading: "Mail",
         name: "email"
-    },
-    {
-        type: "password",
-        heading: "Password",
-        name: "password"
     },
     {
         type: "text",
@@ -64,39 +64,44 @@ export const NEW_ACCOUNT_FORM_FIELDS = [
         heading: "Pin Code",
         name: "pincode"
     },
-
-    
-]
-
-export const FdAcc = [
+    {
+        type: "text",
+        heading: "Applied By",
+        name: "appliedby"
+    },
     {
         type: "number",
         heading: "Principle",
         name: "principle"
     },
     {
-        type: "date",
-        heading: "Deposit Date",
-        name: "depdate"
+        type: "number",
+        heading: "Outstanding",
+        name: "outstanding"
     },
     {
-        type: "date",
-        heading: "Maturity Date",
-        name: "maturdate"
+        type: "number",
+        heading: "Term",
+        name: "term"
     },
+    {
+        type: "number",
+        heading: "Interestrate",
+        name: "interestrate"
+    },
+
 ]
 
-export const AccType = [
-    {
-        type: "dropdown",
-        heading: "Account Type",
-        name: "accType",
-        dropdownValues: ["Select","Savings","FD"]
-    },
-    {
-        type: "dropdown",
-        heading: "Term",
-        name: "term",
-        dropdownValues: ["Select","Quarterly","Healfyearly","Yearly"]
-    },
+    export const LoanType = [
+        {
+            type: "dropdown",
+            heading: "Loan Type",
+            name: "loantype",
+            dropdownValues: ["Personal loan","Fixed Deposit","Property","Gold loan","Credit cards"]
+        }
+    
+
+
+
+    
 ]

@@ -13,6 +13,15 @@ export const apiLogin = async (data) => {
   }
 };
 
+export const apiPay = async (data) => {
+  try {
+    const response = await api.post("instapay", data);
+    return response;
+  } catch (error) {
+    return error.response;
+  }
+};
+
 export const apiAddAccount = async (data) => {
   try {
     const response = await api.post("addAccount", data);
