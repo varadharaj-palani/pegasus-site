@@ -13,6 +13,15 @@ export const apiLogin = async (data) => {
   }
 };
 
+export const apiPay = async (data) => {
+  try {
+    const response = await api.post("instapay", data);
+    return response;
+  } catch (error) {
+    return error.response;
+  }
+};
+
 export const apiAddAccount = async (data) => {
   try {
     const response = await api.post("addAccount", data);
@@ -34,6 +43,44 @@ export const apiDisplayAccount = async (config) => {
 export const apiGetAccount = async (config,type,acct) => {
   try {
     const response = await api.get(`account/${type}/${acct}`, config);
+    return response;
+  } catch (error) {
+    return error.response;
+  }
+};
+
+export const apiGetSavAccount = async (config) => {
+  try {
+    const response = await api.get(`savAccount`, config);
+    return response;
+  } catch (error) {
+    return error.response;
+  }
+};
+
+export const apiGetBeneficiary = async (data) => {
+  console.log(data);
+  try {
+    const response = await api.post(`beneficiary`, data);
+    return response;
+  } catch (error) {
+    return error.response;
+  }
+};
+
+
+export const apiAddBeneficiary = async (data) => {
+  try {
+    const response = await api.post("addBeneficiary", data);
+    return response
+  } catch (error) {
+    return error.response;
+  }
+};
+
+export const apiCheckPassword = async (data) => {
+  try {
+    const response = await api.post(`checkPassword`, data);
     return response;
   } catch (error) {
     return error.response;

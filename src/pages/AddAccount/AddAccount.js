@@ -146,7 +146,7 @@ const Login = () => {
                                     }
                                 </>
                                 <div>
-                                    <Button text={"Login"} onClickMethod={clickedSubmit} color='rgb(255, 100, 0)' />
+                                    <Button text={"Add Account"} onClickMethod={clickedSubmit} color='rgb(255, 100, 0)' />
                                     <Modal showCloseIcon={false} open={isModalOpen} onClose={() => { setIsModalOpen(false) }} center autofocus={false} classNames={{
                                         overlay: `${styles.customOverlay}`,
                                         modal: `${styles.customModal}`,

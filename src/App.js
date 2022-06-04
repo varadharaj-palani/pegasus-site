@@ -21,6 +21,7 @@ import AddAccount from "./pages/AddAccount/AddAccount"
 import FdAccount from "./pages/Account/FdAccount";
 import SavAccount from "./pages/Account/SavAccount";
 import AccountModal from "./pages/AccountModal/AccountModal";
+import Pay from "./pages/Pay/Pay";
 import PageNotFound from "./pages/PageNotFound/PageNotFound";
 const StyledApp = styled.div``;
 function App() {
@@ -51,6 +52,7 @@ const AllRoutes = () => {
       <Route path="/account/savings/:acct" element={<SavAccount />} />
       <Route path="/account/fd/:acct" element={<FdAccount />} />
       <Route path="/accountModal" element={<AccountModal />} />
+      <Route path="/instapay" element={<Pay />} />
       <Route path="/*" element={<PageNotFound />} />
     </Routes>
   );
