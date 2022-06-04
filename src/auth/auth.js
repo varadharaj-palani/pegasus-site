@@ -39,3 +39,12 @@ export const apiGetAccount = async (config) => {
     return error.response;
   }
 };
+
+export const apiProfile = async (config) => {
+  try {
+    const response = await api.get("Profile", config);
+    return response;
+  } catch (error) {
+    return error.response;
+  }
+};
