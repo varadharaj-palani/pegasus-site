@@ -87,11 +87,19 @@ export const apiCheckPassword = async (data) => {
   }
 };
 
-
-
 export const apiProfile = async (config) => {
   try {
-    const response = await api.get("Profile", config);
+    const response = await api.get("profile", config);
+    return response;
+  } catch (error) {
+    return error.response;
+  }
+};
+
+export const apiGetHistory = async (config,acct) => {
+  console.log(acct);
+  try {
+    const response = await api.get(`history/${acct}`, config);
     return response;
   } catch (error) {
     return error.response;

@@ -51,9 +51,10 @@ function Navbar() {
 
         <div className="nav-links">
           <a href="/accountModal">Account</a>
+          <a href="/profile">Profile</a>
           <a href='/loans'>Loans</a>
           <a href="/instapay">Pay</a>
-          <a href="/history" target="_blank">History</a>
+          <a href="/selectAccount">History</a>
           <a href="/contact">Contact  </a>
           <a href='/login' onClick={() => {if(bool) {localStorage.clear()} setState(!val)}}>{prof}</a>
           {/* <a href="mailto:someone@example.com" target="_blank">Feedback</a> */}

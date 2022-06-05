@@ -38,9 +38,10 @@ const Login = () => {
     } else {
       if (resp.status === 200) {
         localStorage.setItem("email", resp.data.username);
+        localStorage.setItem("logbit", resp.data.logbit);
         Store.addNotification({ ...toastNotification, message: resp.data.message, type: resp.data.flag });
         navigate('/');
-        window.location="/";
+        window.location = "/";
         // setloader(false);
 
       } else if (resp.status >= 400 && resp.status < 500) {
