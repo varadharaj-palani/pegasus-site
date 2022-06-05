@@ -1,4 +1,4 @@
-export const LOAN_ACCOUNT_FORM_FIELDS = [
+export const APPLY_LOAN_FORM_FIELDS = [
     {
         type: "text",
         heading: "First Name",
@@ -24,16 +24,19 @@ export const LOAN_ACCOUNT_FORM_FIELDS = [
         heading: "Gender",
         name: "gender"
     },
+
+       {
+        type: "text",
+        heading: "Cibil Score",
+        name: "cibilscore"
+    },
+
     {
         type: "text",
-        heading: "Phone",
-        name: "phone"
+        heading: "Occupation",
+        name: "occupation"
     },
-    {
-        type: "text",
-        heading: "Mail",
-        name: "email"
-    },
+
     {
         type: "text",
         heading: "Aadhar",
@@ -66,42 +69,21 @@ export const LOAN_ACCOUNT_FORM_FIELDS = [
     },
     {
         type: "text",
-        heading: "Applied By",
-        name: "appliedby"
+        heading: "Phone",
+        name: "phone"
     },
     {
-        type: "number",
-        heading: "Principle",
-        name: "principle"
+        type: "text",
+        heading: "Mail",
+        name: "email"
     },
-    {
-        type: "number",
-        heading: "Outstanding",
-        name: "outstanding"
-    },
-    {
-        type: "number",
-        heading: "Term",
-        name: "term"
-    },
-    {
-        type: "number",
-        heading: "Interestrate",
-        name: "interestrate"
-    },
-
 ]
 
-    export const LoanType = [
-        {
-            type: "dropdown",
-            heading: "Loan Type",
-            name: "loantype",
-            dropdownValues: ["Select","Personal loan","Fixed Deposit","Property","Gold loan","Credit cards"]
-        }
-    
-
-
-
-    
+export const LoanType = [
+    {
+        type: "dropdown",
+        heading: "Loan Type",
+        name: "loantype",
+        dropdownValues: ["Select","Personal loan","Fixed Deposit","Property","Gold loan","Credit cards"]
+    }
 ]
