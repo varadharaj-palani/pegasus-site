@@ -22,7 +22,7 @@ const axios = require('axios');
 
 const Addloanacc = () => {
     var navigate=useNavigate();
-    const AddloanaccFormat = {
+    const AddloanaccDetailsFormat = {
         fname: "",
         lname: "",
         dob: "",
@@ -45,10 +45,10 @@ const Addloanacc = () => {
     const clickedSubmit = async () => {
 
         // setloader(true);
-        //   console.log({...loginDetails,captcha: reCaptchaRef.current.getValue()});
+        //   console.log({...AddloanaccDetails,captcha: reCaptchaRef.current.getValue()});
 
         const resp = await apiAddloanacc({
-            ...Addloanacc,
+            ...AddloanaccDetails,
         });
 
         console.log(resp.data)
@@ -78,19 +78,19 @@ const Addloanacc = () => {
 
     }
     const [loader, setloader] = useState(false);
-    const [Addloanacc, set] = useState(AddloanaccFormat);
+    const [AddloanaccDetails, setAddloanaccDetails] = useState(AddloanaccDetailsFormat);
     const [isModalOpen, setIsModalOpen] = useState(false)
-    const changeAddloanacccFormState = (args) => {
-        let prevState = Addloanacc
+    const changeAddloanaccFormState = (args) => {
+        let prevState = AddloanaccDetails
         prevState[args.key] = args.value
-        setAddloanacc({ ...prevState })
+        setAddloanaccDetails({ ...prevState })
     }
 
     return (
         <Page_transition>
             <div className={`${styles.login_wrapper_main}`}>
                 <div className={`${styles.login_wrapper}`}>
-                    <Heading text='ADD LOAN ACCOUNT DETAILS' />
+                    <Heading text='LOANACCOUNT' />
                     <div className={`${styles.register_container}`}>
                         <div className={`${styles.registerFormContainer}`}>
                             {loader && <SimpleLoader message={"CREATING ACCOUNT"} />}
@@ -107,7 +107,7 @@ const Addloanacc = () => {
                                                     type={field.type}
                                                     name={field.name}
                                                     heading={field.heading}
-                                                    value={Addloanacc}
+                                                    value={AddloanaccDetails}
                                                     setter={changeAddloanaccFormState}
                                                 />
                                             </>
@@ -122,7 +122,7 @@ const Addloanacc = () => {
                                                     type={field.type}
                                                     name={field.name}
                                                     heading={field.heading}
-                                                    value={Addloanacc}
+                                                    value={AddloanaccDetails}
                                                     dropdownValues={field.dropdownValues}
                                                     setter={changeAddloanaccFormState}
                                                 />

@@ -1,7 +1,7 @@
 import { useState, createContext, useEffect, useRef } from "react";
-import styles from "./AddAccount.module.css";
+import styles from "./ApplyLoan.module.css";
 import FormField from "../../components/FormField/FormField";
-import { NEW_ACCOUNT_FORM_FIELDS, AccType, FdAcc } from "../../data/accdata";
+import { APPLY_LOAN_FORM_FIELDS, LoanType } from "../../data/applyloandata";
 import SimpleLoader from "../../components/SimpleLoader/SimpleLoader";
 import Button from "../../components/Button/Button";
 import { Modal } from "react-responsive-modal";
@@ -10,22 +10,20 @@ import { Modal } from "react-responsive-modal";
 // import RegisterForm from "./../Register/RegisterForm";
 import Page_transition from "../../components/Animation/Transition";
 import Heading from "../../components/Heading/Heading.js";
-import { apiAddAccount } from "../../auth/auth";
+import { apiApplyLoan  } from "../../auth/auth";
 import { ReactNotifications, Store } from 'react-notifications-component'
 import { useNavigate } from "react-router-dom";
 import { toastNotification } from "../../components/Notification/Notification";
 import 'react-notifications-component/dist/theme.css';
 
 const axios = require('axios');
-
-
-
-const Login = () => {
+const Applyloan = () => {
     var navigate=useNavigate();
-    const loginDetailsFormat = {
+    const ApplyloanDetailsFormat = {
         fname: "",
         lname: "",
         dob: "",
+        accountnno:"",
         gender: "",
         phone: "",
         email: "",
@@ -35,20 +33,17 @@ const Login = () => {
         line2: "",
         city: "",
         pincode: "",
-        principle: 0,
-        term: "",
-        depdate: "",
-        maturdate: "",
-        accType: "",
-        password: "",
+        Loantype:"",
+        Cibilscore:"",
+        Occupation:"",
     }
     const clickedSubmit = async () => {
 
         // setloader(true);
-        //   console.log({...loginDetails,captcha: reCaptchaRef.current.getValue()});
+        //   console.log({...ApplyLoanDetails,captcha: reCaptchaRef.current.getValue()});
 
-        const resp = await apiAddAccount({
-            ...loginDetails,
+        const resp = await apiApplyLoan({
+            ...ApplyLoanDetails,
         });
 
         console.log(resp.data)
@@ -78,27 +73,27 @@ const Login = () => {
 
     }
     const [loader, setloader] = useState(false);
-    const [loginDetails, setLoginDetails] = useState(loginDetailsFormat);
+    const [ApplyLoanDetails, setApplyLoanDetails] = useState(ApplyloanDetailsFormat);
     const [isModalOpen, setIsModalOpen] = useState(false)
-    const changeLoginFormState = (args) => {
-        let prevState = loginDetails
+    const changeApplyLoanFormState = (args) => {
+        let prevState = ApplyLoanDetails
         prevState[args.key] = args.value
-        setLoginDetails({ ...prevState })
+        setApplyLoanDetails({ ...prevState })
     }
     return (
         <Page_transition>
             <div className={`${styles.login_wrapper_main}`}>
                 <div className={`${styles.login_wrapper}`}>
-                    <Heading text='LOGIN' />
+                    <Heading text='APPLYLOAN' />
                     <div className={`${styles.register_container}`}>
                         <div className={`${styles.registerFormContainer}`}>
-                            {loader && <SimpleLoader message={"Logging in"} />}
+                            {loader && <SimpleLoader message={"SENDING REQUEST"} />}
                             <div
                                 style={{ display: loader ? "none" : "flex" }}
                                 className={`${styles.formWrapper}`}
                             >
                                 <>
-                                    {NEW_ACCOUNT_FORM_FIELDS.map((field, key) => {
+                                    {APPLY_LOAN_FORM_FIELDS.map((field, key) => {
                                         return (
                                             <>
                                                 <FormField
@@ -106,14 +101,14 @@ const Login = () => {
                                                     type={field.type}
                                                     name={field.name}
                                                     heading={field.heading}
-                                                    value={loginDetails}
-                                                    setter={changeLoginFormState}
+                                                    value={ApplyLoanDetails}
+                                                    setter={changeApplyLoanFormState}
                                                 />
                                             </>
                                         );
                                     })
                                     }
-                                    {AccType.map((field, key) => {
+                                    {LoanType.map((field, key) => {
                                         return (
                                             <>
                                                 <FormField
@@ -121,32 +116,18 @@ const Login = () => {
                                                     type={field.type}
                                                     name={field.name}
                                                     heading={field.heading}
-                                                    value={loginDetails}
+                                                    value={ApplyLoanDetails}
                                                     dropdownValues={field.dropdownValues}
-                                                    setter={changeLoginFormState}
+                                                    setter={changeApplyLoanFormState}
                                                 />
                                             </>
                                         );
                                     })
                                     }
-                                    {FdAcc.map((field, key) => {
-                                        return (
-                                            <>
-                                                <FormField
-                                                    key={key}
-                                                    type={field.type}
-                                                    name={field.name}
-                                                    heading={field.heading}
-                                                    value={loginDetails}
-                                                    setter={changeLoginFormState}
-                                                />
-                                            </>
-                                        );
-                                    })
-                                    }
+                                    
                                 </>
                                 <div>
-                                    <Button text={"Login"} onClickMethod={clickedSubmit} color='rgb(255, 100, 0)' />
+                                    <Button text={"Submit"} onClickMethod={clickedSubmit} color='rgb(255, 100, 0)' />
                                     <Modal showCloseIcon={false} open={isModalOpen} onClose={() => { setIsModalOpen(false) }} center autofocus={false} classNames={{
                                         overlay: `${styles.customOverlay}`,
                                         modal: `${styles.customModal}`,
@@ -162,6 +143,6 @@ const Login = () => {
 
         </Page_transition>
     )
+    
 }
-
-export default Login
+export default Applyloan 

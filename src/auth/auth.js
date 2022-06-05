@@ -87,11 +87,27 @@ export const apiCheckPassword = async (data) => {
   }
 };
 
-
+export const apiAddloanacc = async (config) => {
+  try {
+    const response = await api.get("Addloanacc", config);
+    return response;
+  } catch (error) {
+    return error.response;
+  }
+};
 
 export const apiProfile = async (config) => {
   try {
     const response = await api.get("Profile", config);
+    return response;
+  } catch (error) {
+    return error.response;
+  }
+};
+
+export const apiApplyLoan = async (config) => {
+  try {
+    const response = await api.get("ApplyLoan", config);
     return response;
   } catch (error) {
     return error.response;

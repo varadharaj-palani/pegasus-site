@@ -23,6 +23,9 @@ import SavAccount from "./pages/Account/SavAccount";
 import AccountModal from "./pages/AccountModal/AccountModal";
 import Pay from "./pages/Pay/Pay";
 import PageNotFound from "./pages/PageNotFound/PageNotFound";
+import Addloanacc from "./pages/Addloanacc/Addloanacc";
+import ApplyLoan from "./pages/ApplyLoan/ApplyLoan";
+
 const StyledApp = styled.div``;
 function App() {
   return (
@@ -54,6 +57,8 @@ const AllRoutes = () => {
       <Route path="/accountModal" element={<AccountModal />} />
       <Route path="/instapay" element={<Pay />} />
       <Route path="/*" element={<PageNotFound />} />
+      <Route path="/Addloanacc" element={<Addloanacc />} />
+      <Route path="/ApplyLoan" element={<ApplyLoan />} />
     </Routes>
   );
 };
