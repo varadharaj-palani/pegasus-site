@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { apiDisplayAccount } from "../../auth/auth";
-import styles from "../AccountModal/AccountModal.module.css";
+import { apiGetSavAccount } from "../../auth/auth";
+import styles from "../History/SelectAccount.module.css";
 import { useNavigate } from "react-router-dom";
 import { useParams, Link } from 'react-router-dom'
 import Heading from "../../components/Heading/Heading";
@@ -10,44 +10,33 @@ import 'react-notifications-component/dist/theme.css';
 
 
 function Print(props) {
-    console.log(props)
-    var acct;
-    if (props.atom.ACCTYPE == "Savings") {
-        acct = props.atom.ACCNO;
-        return (
-            <div className={`${styles.itemRow}`}>
-                <Link className={`${styles.itemRow}`} to={`../account/savings/${acct}`}>
-                    <div className={`${styles.itemHeader}`}>{props.atom.ACCNO}</div>
-                    <div className={`${styles.itemContent}`}>{props.atom.ACCTYPE}</div>
-                </Link>
-            </div>
-        )
-    }
-    else {
-        acct = props.atom.ACCNO;
-        return (
-            <div className={`${styles.itemRow}`}>
-                <Link className={`${styles.itemRow}`} to={`../account/fd/${acct}`}>
-                    <p className={`${styles.itemHeader}`}>{props.atom.ACCNO}</p>
-                    <p className={`${styles.itemContent}`}>{props.atom.ACCTYPE}</p>
-                </Link>
-            </div>
-        )
-    }
+    console.log(props);
+    var acct = props.atom;
+    console.log(acct)
+    return (
+        <div className={`${styles.itemRow}`}>
+            <Link className={`${styles.itemRow}`} to={`../history/${acct}`}>
+                <div className={`${styles.itemHeader}`}>{props.atom}</div>
+                <div className={`${styles.itemContent}`}>Savings</div>
+            </Link>
+        </div>
+    )
 
 }
 
 function DispData(props) {
     console.log(props.data)
     var allAccounts = props.data.map((item, i) => {
+        if(i != 0){
         return <Print atom={item} />
+        }
     })
     return (
         allAccounts
     )
 }
 
-function AccountModal() {
+function SelectAccount() {
     if (localStorage.getItem('email') == null) {
         // Store.addNotification({ ...toastNotification, message: "Error Undefined" });
         window.location = '/login';
@@ -60,23 +49,21 @@ function AccountModal() {
         }
     };
 
-    const dataFormat = {
-        'accounts': []
-    };
+   
 
-    const [data, setData] = useState(dataFormat);
+    const [data, setData] = useState([]);
     const [bit, setBit] = useState(false);
 
     const callapi = async () => {
-        const resp = await apiDisplayAccount(config);
+        const resp = await apiGetSavAccount(config);
         if (resp === undefined) {
             console.log('Error Try Again')
         }
         else {
             if (resp.status === 200) {
                 console.log("Account Found")
-                console.log(resp.data.accounts);
-                setData(resp.data.accounts);
+                console.log(resp.data);
+                setData(resp.data);
             }
             else if (resp.status >= 400 && resp.status < 500) {
                 console.log("Query Error")
@@ -115,4 +102,4 @@ function AccountModal() {
     )
 }
 
-export default AccountModal;
+export default SelectAccount;
