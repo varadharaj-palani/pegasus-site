@@ -28,7 +28,7 @@ import PageNotFound from "./pages/PageNotFound/PageNotFound";
 import Addloanacc from "./pages/Addloanacc/Addloanacc";
 import ApplyLoan from "./pages/ApplyLoan/ApplyLoan";
 import ShowBills from "./pages/ShowBills/ShowBills";
-
+import PayBill from "./pages/PayBill/PayBill";
 
 const StyledApp = styled.div``;
 function App() {
@@ -82,6 +82,7 @@ const CustRoutes = () => {
       <Route path="/accountModal" element={<AccountModal />} />
       <Route path="/instapay" element={<Pay />} />
       <Route path="/bills" element={<ShowBills />} />
+      <Route path="/payNewBill" element={<PayBill />} />
       <Route path="/addLoan" element={<Addloanacc />} />
       <Route path="/applyLoan" element={<ApplyLoan />} />
       <Route path="/*" element={<PageNotFound />} />

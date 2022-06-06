@@ -125,7 +125,7 @@ function ShowBills() {
 
             </table>
             <div style={{ display: "inline-block", margin: "auto" }}>
-                <Button text='PAY NEW BILL' onClickMethod={() => navigate('/newBill')} color={"#70AD47"} />
+                <Button text='PAY NEW BILL' onClickMethod={() => navigate('/payNewBill')} color={"#70AD47"} />
             </div>
         </div>
         {modal && <Modal datum={datum} />}

@@ -22,13 +22,13 @@ function Historyrecord(props) {
                 <td>{props.aacno}</td>
                 <td>{props.ttype}</td>
                 <td>{props.amount}</td>
-                <td>{props.date.slice(0,10)}</td>
+                <td>{props.date.slice(0, 10)}</td>
             </tr>
         </>
     )
 }
 
-function HistoryList(props){
+function HistoryList(props) {
     console.log(props.data);
     const hlist = props.data.map((item, i) => {
         return <Historyrecord transid={item.TRANSID} aacno={item.AACNO} ttype={item.TTYPE} amount={item.AMOUNT} date={item.TRANSDATE} name={item.name} />
@@ -54,7 +54,7 @@ function History() {
 
     const fetchHistory = async () => {
 
-        const history = await apiGetHistory(config,acct);
+        const history = await apiGetHistory(config, acct);
         if (history === undefined) {
             console.log("Error");
         }

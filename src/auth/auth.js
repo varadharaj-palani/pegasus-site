@@ -123,6 +123,35 @@ export const apiGetBills = async (config) => {
   }
 };
 
+export const apiGetBillers = async (data) => {
+  console.log(data);
+  try {
+    const response = await api.post(`billers`, data);
+    return response;
+  } catch (error) {
+    return error.response;
+  }
+};
+
+export const apiAddBiller = async (data) => {
+  try {
+    const response = await api.post("addBiller", data);
+    return response;
+  } catch (error) {
+    return error.response;
+  }
+};
+
+export const apiPayNewBill = async (data) => {
+  try {
+    const response = await api.post("payNewBill", data);
+    return response;
+  } catch (error) {
+    return error.response;
+  }
+};
+
+
 export const apiGetHistory = async (config,acct) => {
   console.log(acct);
   try {

@@ -1,25 +1,39 @@
 
 export const BILL_FORM_FIELDS = [
     {
-        type: "number",
-        heading: "Amount",
-        name: "amount"
+        type: "text",
+        heading: "Location",
+        name: "location"
     },
     {
         type: "text",
-        heading: "To Account",
-        name: "toacc"
+        heading: "Biller Name",
+        name: "billername"
     },
     {
-        type: "textarea",
-        heading: "Purpose",
-        name: "purpose"
+        type: "date",
+        heading: "Date",
+        name: "billdate"
+    },
+    {
+        type: "number",
+        heading: "Amount",
+        name: "billamount"
     },
     {
         type: "password",
         heading: "Password",
         name: "pwd"
     },
+]
+
+export const Category = [
+    {
+        type: "dropdown",
+        heading: "Category",
+        name: "category",
+        dropdownValues: ["Select","DTH","Recharge","BroadBand","Electricity","Gas","Insurance","Fastag","Water"]
+    }
 ]
 
 export const Accounts = [
