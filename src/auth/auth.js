@@ -22,6 +22,15 @@ export const apiPay = async (data) => {
   }
 };
 
+export const apiPayBill = async (data) => {
+  try {
+    const response = await api.post("payBill", data);
+    return response;
+  } catch (error) {
+    return error.response;
+  }
+};
+
 export const apiAddAccount = async (data) => {
   try {
     const response = await api.post("addAccount", data);
@@ -87,9 +96,9 @@ export const apiCheckPassword = async (data) => {
   }
 };
 
-export const apiAddloanacc = async (config) => {
+export const apiAddloanacc = async (data) => {
   try {
-    const response = await api.get("Addloanacc", config);
+    const response = await api.post("addLoan", data);
     return response;
   } catch (error) {
     return error.response;
@@ -99,6 +108,15 @@ export const apiAddloanacc = async (config) => {
 export const apiProfile = async (config) => {
   try {
     const response = await api.get("profile", config);
+    return response;
+  } catch (error) {
+    return error.response;
+  }
+};
+
+export const apiGetBills = async (config) => {
+  try {
+    const response = await api.get("bills", config);
     return response;
   } catch (error) {
     return error.response;

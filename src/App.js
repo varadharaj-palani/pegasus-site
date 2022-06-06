@@ -27,6 +27,8 @@ import Pay from "./pages/Pay/Pay";
 import PageNotFound from "./pages/PageNotFound/PageNotFound";
 import Addloanacc from "./pages/Addloanacc/Addloanacc";
 import ApplyLoan from "./pages/ApplyLoan/ApplyLoan";
+import ShowBills from "./pages/ShowBills/ShowBills";
+
 
 const StyledApp = styled.div``;
 function App() {
@@ -79,9 +81,10 @@ const CustRoutes = () => {
       <Route path="/account/fd/:acct" element={<FdAccount />} />
       <Route path="/accountModal" element={<AccountModal />} />
       <Route path="/instapay" element={<Pay />} />
+      <Route path="/bills" element={<ShowBills />} />
+      <Route path="/addLoan" element={<Addloanacc />} />
+      <Route path="/applyLoan" element={<ApplyLoan />} />
       <Route path="/*" element={<PageNotFound />} />
-      <Route path="/Addloanacc" element={<Addloanacc />} />
-      <Route path="/ApplyLoan" element={<ApplyLoan />} />
 
     </Routes>
   )

@@ -42,6 +42,8 @@
   .nav > .nav-links > a:hover {
     background-color: rgba(0, 0, 0, 0.3);
   }
+
+  
   
   .nav > #nav-check {
     /* height: 600px; */
@@ -54,6 +56,7 @@
     height: 60px;
     position: absolute;
     top: 0px;
+    cursor: pointer;
   }
 
 

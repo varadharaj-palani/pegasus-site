@@ -22,7 +22,7 @@ const axios = require('axios');
 
 const Addloanacc = () => {
     var navigate=useNavigate();
-    const AddloanaccDetailsFormat = {
+    const billDetailsFormat = {
         email: "",
         accno:"",
         sanctby:"",
@@ -67,9 +67,9 @@ const Addloanacc = () => {
 
     }
     const [loader, setloader] = useState(false);
-    const [AddloanaccDetails, setAddloanaccDetails] = useState(AddloanaccDetailsFormat);
+    const [billDetails, setBillDetails] = useState(AddloanaccDetailsFormat);
     const [isModalOpen, setIsModalOpen] = useState(false)
-    const changeAddloanaccFormState = (args) => {
+    const changebillDetailsFormState = (args) => {
         let prevState = AddloanaccDetails
         prevState[args.key] = args.value
         setAddloanaccDetails({ ...prevState })
@@ -79,10 +79,10 @@ const Addloanacc = () => {
         <Page_transition>
             <div className={`${styles.login_wrapper_main}`}>
                 <div className={`${styles.login_wrapper}`}>
-                    <Heading text='LOAN' />
+                    <Heading text='PAYBILL' />
                     <div className={`${styles.register_container}`}>
                         <div className={`${styles.registerFormContainer}`}>
-                            {loader && <SimpleLoader message={"CREATING ACCOUNT"} />}
+                            {loader && <SimpleLoader message={"TRANSACTION UNDER PROCESSING"} />}
                             <div
                                 style={{ display: loader ? "none" : "flex" }}
                                 className={`${styles.formWrapper}`}
@@ -122,7 +122,7 @@ const Addloanacc = () => {
                                     
                                 </>
                                 <div>
-                                    <Button text={"Create Loan"} onClickMethod={clickedSubmit} color='rgb(255, 100, 0)' />
+                                    <Button text={"Pay Bill"} onClickMethod={clickedSubmit} color='rgb(255, 100, 0)' />
                                     <Modal showCloseIcon={false} open={isModalOpen} onClose={() => { setIsModalOpen(false) }} center autofocus={false} classNames={{
                                         overlay: `${styles.customOverlay}`,
                                         modal: `${styles.customModal}`,
