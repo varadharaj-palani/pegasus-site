@@ -151,6 +151,15 @@ export const apiPayNewBill = async (data) => {
   }
 };
 
+export const apiAddMoney = async (data) => {
+  try {
+    const response = await api.post("addMoney", data);
+    return response;
+  } catch (error) {
+    return error.response;
+  }
+};
+
 
 export const apiGetHistory = async (config,acct) => {
   console.log(acct);

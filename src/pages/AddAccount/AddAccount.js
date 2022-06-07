@@ -1,7 +1,7 @@
 import { useState, createContext, useEffect, useRef } from "react";
 import styles from "./AddAccount.module.css";
 import FormField from "../../components/FormField/FormField";
-import { NEW_ACCOUNT_FORM_FIELDS, AccType, FdAcc } from "../../data/accdata";
+import { NEW_ACCOUNT_FORM_FIELDS, AccType, FdAcc, Term } from "../../data/accdata";
 import SimpleLoader from "../../components/SimpleLoader/SimpleLoader";
 import Button from "../../components/Button/Button";
 import { Modal } from "react-responsive-modal";
@@ -21,7 +21,7 @@ const axios = require('axios');
 
 
 const Login = () => {
-    var navigate=useNavigate();
+    var navigate = useNavigate();
     const loginDetailsFormat = {
         fname: "",
         lname: "",
@@ -53,24 +53,24 @@ const Login = () => {
 
         console.log(resp.data)
         if (resp === undefined) {
-            Store.addNotification({...toastNotification,message:"Error Undefined"})
+            Store.addNotification({ ...toastNotification, message: "Error Undefined" })
         } else {
             if (resp.status === 200) {
                 // console.log(auth);
                 // console.log(resp.data.message);
                 // showMessage(resp.data.message, resp.data.flag);
-                Store.addNotification({...toastNotification,message:resp.data.message,type:resp.data.flag});
+                Store.addNotification({ ...toastNotification, message: resp.data.message, type: resp.data.flag });
                 navigate('/');
                 // setloader(false);
 
             } else if (resp.status >= 400 && resp.status < 500) {
                 console.log(resp.data.message);
-                Store.addNotification({...toastNotification,message:resp.data.message,type:resp.data.flag})
+                Store.addNotification({ ...toastNotification, message: resp.data.message, type: resp.data.flag })
                 setloader(false);
 
             } else if (resp.status >= 500 && resp.status < 600) {
                 console.log(resp.data.message);
-                Store.addNotification({...toastNotification,message:resp.data.message,type:resp.data.flag})
+                Store.addNotification({ ...toastNotification, message: resp.data.message, type: resp.data.flag })
                 setloader(false);
 
             }
@@ -129,7 +129,23 @@ const Login = () => {
                                         );
                                     })
                                     }
-                                    {FdAcc.map((field, key) => {
+                                    {loginDetails.accType == "FD" && Term.map((field, key) => {
+                                        return (
+                                            <>
+                                                <FormField
+                                                    key={key}
+                                                    type={field.type}
+                                                    name={field.name}
+                                                    heading={field.heading}
+                                                    value={loginDetails}
+                                                    dropdownValues={field.dropdownValues}
+                                                    setter={changeLoginFormState}
+                                                />
+                                            </>
+                                        );
+                                    })
+                                    }
+                                    {loginDetails.accType == "FD" && FdAcc.map((field, key) => {
                                         return (
                                             <>
                                                 <FormField

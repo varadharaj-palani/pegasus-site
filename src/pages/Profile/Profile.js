@@ -2,17 +2,21 @@ import React, { useEffect, useState } from "react";
 import { apiProfile } from "../../auth/auth";
 import styles from "../Profile/Profile.module.css";
 import Heading from "../../components/Heading/Heading";
+import { ReactNotifications, Store } from 'react-notifications-component'
+import { toastNotification } from "../../components/Notification/Notification";
+import 'react-notifications-component/dist/theme.css';
 
 function Profile() {
     const config = {
         headers: {
-            authorization: localStorage.getItem("email"),
+            authorization: localStorage.getItem("email")
         }
     };
     const dataFormat = {
         'customer': {},
         'savingsacc': {},
        
+
     };
     const [data, setData] = useState(dataFormat);
 
@@ -21,17 +25,21 @@ function Profile() {
         const resp = await apiProfile(config);
         if (resp === undefined) {
             console.log('Error Try Again')
+            Store.addNotification({ ...toastNotification, message: "Undefined Error" });
         }
         else {
             if (resp.status === 200) {
                 console.log("Account Found");
+                console.log(resp.data);
                 setData(resp.data);
             }
             else if (resp.status >= 400 && resp.status < 500) {
                 console.log("Query Error")
+                Store.addNotification({ ...toastNotification, message: resp.data.message, type: resp.data.flag });
             }
             else if (resp.status >= 500 && resp.status < 600) {
                 console.log("Internal Server Error")
+                Store.addNotification({ ...toastNotification, message: resp.data.message, type: resp.data.flag });
             }
         }
     }

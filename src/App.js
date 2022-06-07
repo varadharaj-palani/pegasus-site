@@ -30,6 +30,7 @@ import ApplyLoan from "./pages/ApplyLoan/ApplyLoan";
 import ShowBills from "./pages/ShowBills/ShowBills";
 import PayBill from "./pages/PayBill/PayBill";
 import Service from "./pages/Service/Service";
+import AddMoney from "./pages/AddMoney/AddMoney";
 
 const StyledApp = styled.div``;
 function App() {
@@ -85,7 +86,6 @@ const CustRoutes = () => {
       <Route path="/instapay" element={<Pay />} />
       <Route path="/bills" element={<ShowBills />} />
       <Route path="/payNewBill" element={<PayBill />} />
-      <Route path="/addLoan" element={<Addloanacc />} />
       <Route path="/applyLoan" element={<ApplyLoan />} />
       <Route path="/*" element={<PageNotFound />} />
       <Route path="/Service" element={<Service />} />
@@ -110,6 +110,10 @@ const EmpRoutes = () => {
       <Route path="/addAccount" element={<AddAccount />} />
       
       
+      <Route path="/addAccount" element={<AddAccount />} />
+      <Route path="/addLoan" element={<Addloanacc />} />
+      <Route path="/addMoney" element={<AddMoney />} />
+      <Route path="/*" element={<PageNotFound />} />
 
     </Routes>
   )

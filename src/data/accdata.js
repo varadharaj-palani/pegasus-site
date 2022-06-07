@@ -93,10 +93,15 @@ export const AccType = [
         name: "accType",
         dropdownValues: ["Select","Savings","FD"]
     },
+    
+]
+
+export const Term = [
     {
         type: "dropdown",
         heading: "Term",
         name: "term",
         dropdownValues: ["Select","Quarterly","Healfyearly","Yearly"]
     },
+    
 ]

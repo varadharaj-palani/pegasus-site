@@ -1,7 +1,7 @@
 export const LOAN_ACCOUNT_FORM_FIELDS = [
     {
         type: "text",
-        heading: "Mail",
+        heading: "Customer Mail",
         name: "email"
     },
     {
