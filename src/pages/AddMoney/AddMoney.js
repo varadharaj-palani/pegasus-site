@@ -1,7 +1,7 @@
 import { useState, createContext, useEffect, useRef } from "react";
-import styles from "./Addloanacc.module.css";
+import styles from "./AddMoney.module.css";
 import FormField from "../../components/FormField/FormField";
-import { LOAN_ACCOUNT_FORM_FIELDS, LoanType } from "../../data/loanaccdata";
+import { DEPOSIT_DATA_FORM_FIELDS } from "../../data/depositdata";
 import SimpleLoader from "../../components/SimpleLoader/SimpleLoader";
 import Button from "../../components/Button/Button";
 import { Modal } from "react-responsive-modal";
@@ -10,7 +10,7 @@ import { Modal } from "react-responsive-modal";
 // import RegisterForm from "./../Register/RegisterForm";
 import Page_transition from "../../components/Animation/Transition";
 import Heading from "../../components/Heading/Heading.js";
-import { apiAddloanacc } from "../../auth/auth";
+import { apiAddMoney } from "../../auth/auth";
 import { ReactNotifications, Store } from 'react-notifications-component'
 import { useNavigate } from "react-router-dom";
 import { toastNotification } from "../../components/Notification/Notification";
@@ -20,24 +20,22 @@ const axios = require('axios');
 
 
 
-const Addloanacc = () => {
+const AddMoney = () => {
     var navigate=useNavigate();
-    const AddloanaccDetailsFormat = {
+    const AddMoneyDetailsFormat = {
         email: "",
         accno:"",
-        sanctby: localStorage.getItem('email'),
-        interestrate:"",
-        principle: 0,
-        term: "",
-        loanType: "",
+        appby: localStorage.getItem('email'),
+        amount: 0,
+        pwd: ""
     }
     const clickedSubmit = async () => {
 
         // setloader(true);
-        //   console.log({...AddloanaccDetails,captcha: reCaptchaRef.current.getValue()});
+        //   console.log({...AddMoneyDetails,captcha: reCaptchaRef.current.getValue()});
 
-        const resp = await apiAddloanacc({
-            ...AddloanaccDetails,
+        const resp = await apiAddMoney({
+            ...AddMoneyDetails,
         });
 
         console.log(resp.data)
@@ -67,29 +65,29 @@ const Addloanacc = () => {
 
     }
     const [loader, setloader] = useState(false);
-    const [AddloanaccDetails, setAddloanaccDetails] = useState(AddloanaccDetailsFormat);
+    const [AddMoneyDetails, setAddMoneyDetails] = useState(AddMoneyDetailsFormat);
     const [isModalOpen, setIsModalOpen] = useState(false)
-    const changeAddloanaccFormState = (args) => {
-        let prevState = AddloanaccDetails
+    const changeAddMoneyFormState = (args) => {
+        let prevState = AddMoneyDetails
         prevState[args.key] = args.value
-        console.log(prevState);
-        setAddloanaccDetails({ ...prevState })
+        setAddMoneyDetails({ ...prevState })
     }
+    console.log(AddMoneyDetails);
 
     return (
         <Page_transition>
             <div className={`${styles.login_wrapper_main}`}>
                 <div className={`${styles.login_wrapper}`}>
-                    <Heading text='LOAN' />
+                    <Heading text='DEPOSIT' />
                     <div className={`${styles.register_container}`}>
                         <div className={`${styles.registerFormContainer}`}>
-                            {loader && <SimpleLoader message={"CREATING ACCOUNT"} />}
+                            {loader && <SimpleLoader message={"TRANSACTION UNDER PROCESSING"} />}
                             <div
                                 style={{ display: loader ? "none" : "flex" }}
                                 className={`${styles.formWrapper}`}
                             >
                                 <>
-                                    {LOAN_ACCOUNT_FORM_FIELDS.map((field, key) => {
+                                    {DEPOSIT_DATA_FORM_FIELDS.map((field, key) => {
                                         return (
                                             <>
                                                 <FormField
@@ -97,33 +95,18 @@ const Addloanacc = () => {
                                                     type={field.type}
                                                     name={field.name}
                                                     heading={field.heading}
-                                                    value={AddloanaccDetails}
-                                                    setter={changeAddloanaccFormState}
-                                                />
-                                            </>
-                                        );
-                                    })
-                                    }
-                                    {LoanType.map((field, key) => {
-                                        return (
-                                            <>
-                                                <FormField
-                                                    key={key}
-                                                    type={field.type}
-                                                    name={field.name}
-                                                    heading={field.heading}
-                                                    value={AddloanaccDetails}
-                                                    dropdownValues={field.dropdownValues}
-                                                    setter={changeAddloanaccFormState}
+                                                    value={AddMoneyDetails}
+                                                    setter={changeAddMoneyFormState}
                                                 />
                                             </>
                                         );
                                     })
                                     }
                                     
+                                    
                                 </>
                                 <div>
-                                    <Button text={"Create Loan"} onClickMethod={clickedSubmit} color='rgb(255, 100, 0)' />
+                                    <Button text={"Deposit"} onClickMethod={clickedSubmit} color='rgb(255, 100, 0)' />
                                     <Modal showCloseIcon={false} open={isModalOpen} onClose={() => { setIsModalOpen(false) }} center autofocus={false} classNames={{
                                         overlay: `${styles.customOverlay}`,
                                         modal: `${styles.customModal}`,
@@ -141,4 +124,4 @@ const Addloanacc = () => {
     )
     
 }
-export default Addloanacc
+export default AddMoney

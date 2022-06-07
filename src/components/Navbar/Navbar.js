@@ -14,10 +14,13 @@ function Navbar() {
   var navigate = useNavigate();
 
   var bool;
+  var logbit;
   if (localStorage.getItem('email') == null) {
     bool = false;
+    logbit = 4;
   } else {
     bool = true;
+    logbit = localStorage.getItem('logbit');
   }
 
   var prof;
@@ -54,16 +57,20 @@ function Navbar() {
         </div>
 
         <div className="nav-links">
-          <a href="/accountModal">Account</a>
-          <a href="/profile">Profile</a>
-          <a href='/loans'>Loans</a>
-          <a href="/instapay">Quick Pay</a>
-          <a href="/bills">Bill</a>
-          <a href="/selectAccount">History</a>
-          <a href="/contact">Contact  </a>
-          <a href='/login' onClick={() => {
-            if (bool) { localStorage.clear() } setState(!val)
-          }}>{prof}</a>
+          {logbit == 1 && <a href="/accountModal">Account</a>}
+          {logbit == 1 &&<a href="/profile">Profile</a>}
+          {logbit == 2 &&<a href="/addAccount">Add Account</a>}
+          {logbit == 2 &&<a href="/addLoan">Lend Loan</a>}
+          {logbit == 1 &&<a href='/loans'>Loans</a>}
+          {logbit == 1 &&<a href="/instapay">Quick Pay</a>}
+          {logbit == 1 &&<a href="/bills">Bill</a>}
+          {logbit == 1 &&<a href="/selectAccount">History</a>}
+          {<a href="/contact">Contact  </a>}
+          {<a href='/login' onClick={() => {
+            if (bool) { localStorage.clear() } 
+            Store.addNotification({ ...toastNotification, message: "Logged Out Successfully", type: "success" });
+            setState(!val)
+          }}>{prof}</a>}
           {/* <a href="mailto:someone@example.com" target="_blank">Feedback</a> */}
 
         </div>

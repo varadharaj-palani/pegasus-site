@@ -1,7 +1,7 @@
 import { useState, createContext, useEffect, useRef } from "react";
 import styles from "./Login.module.css";
 import FormField from "../../components/FormField/FormField";
-import { LOGIN_FORM_FIELDS } from "../../data/regdata";
+import { LOGIN_FORM_FIELDS, LoginType } from "../../data/regdata";
 import SimpleLoader from "../../components/SimpleLoader/SimpleLoader";
 import Button from "../../components/Button/Button";
 import { Modal } from "react-responsive-modal";
@@ -22,7 +22,8 @@ const Login = () => {
 
   const loginDetailsFormat = {
     email: "",
-    pwd: ""
+    pwd: "",
+    type: ""
   }
   const clickedSubmit = async () => {
 
@@ -79,6 +80,22 @@ const Login = () => {
                 className={`${styles.formWrapper}`}
               >
                 <>
+                  {LoginType.map((field, key) => {
+                    return (
+                      <>
+                        <FormField
+                          key={key}
+                          type={field.type}
+                          name={field.name}
+                          heading={field.heading}
+                          value={loginDetails}
+                          dropdownValues={field.dropdownValues}
+                          setter={changeLoginFormState}
+                        />
+                      </>
+                    );
+                  })
+                  }
                   {LOGIN_FORM_FIELDS.map((field, key) => {
                     return (
                       <>

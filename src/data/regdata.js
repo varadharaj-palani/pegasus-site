@@ -10,4 +10,14 @@ export const LOGIN_FORM_FIELDS = [
         heading: "Password",
         name: "pwd"
     },
+
+]
+
+export const LoginType = [
+    {
+        type: "dropdown",
+        heading: "Choose Login Type",
+        name: "type",
+        dropdownValues: ["Select", "Customer", "Employee", "God"]
+    }
 ]
