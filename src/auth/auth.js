@@ -116,7 +116,7 @@ export const apiGetHistory = async (config,acct) => {
 };
 
 export const apiApplyLoan = async (config) => {
-  try {
+  try {z
     const response = await api.get("ApplyLoan", config);
     return response;
   } catch (error) {
