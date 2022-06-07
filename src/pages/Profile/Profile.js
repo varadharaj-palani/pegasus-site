@@ -11,7 +11,7 @@ function Profile() {
     };
     const dataFormat = {
         'customer': {},
-        'account': {},
+        'savingsacc': {},
        
     };
     const [data, setData] = useState(dataFormat);
@@ -78,7 +78,7 @@ function Profile() {
                     </div>
                     <div className={`${styles.itemRow}`}>
                         <p className={`${styles.itemHeader}`}>primary account no</p>
-                        <p className={`${styles.itemContent}`}>{data.account.ACCNO}</p>
+                        <p className={`${styles.itemContent}`}>{data.savingsacc.ACCNO}</p>
                     </div>
                 </div>
             </div>)}
