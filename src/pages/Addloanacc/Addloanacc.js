@@ -23,24 +23,13 @@ const axios = require('axios');
 const Addloanacc = () => {
     var navigate=useNavigate();
     const AddloanaccDetailsFormat = {
-        fname: "",
-        lname: "",
-        dob: "",
-        gender: "",
-        phone: "",
         email: "",
-        aadhar: "",
-        pan: "",
-        line1: "",
-        line2: "",
-        city: "",
-        pincode: "",
         accno:"",
-        appliedby:"",
+        sanctby:"",
         interestrate:"",
         principle: 0,
         term: "",
-        LoanType: "",
+        loanType: "",
     }
     const clickedSubmit = async () => {
 
@@ -90,7 +79,7 @@ const Addloanacc = () => {
         <Page_transition>
             <div className={`${styles.login_wrapper_main}`}>
                 <div className={`${styles.login_wrapper}`}>
-                    <Heading text='LOANACCOUNT' />
+                    <Heading text='LOAN' />
                     <div className={`${styles.register_container}`}>
                         <div className={`${styles.registerFormContainer}`}>
                             {loader && <SimpleLoader message={"CREATING ACCOUNT"} />}
@@ -133,7 +122,7 @@ const Addloanacc = () => {
                                     
                                 </>
                                 <div>
-                                    <Button text={"Submit"} onClickMethod={clickedSubmit} color='rgb(255, 100, 0)' />
+                                    <Button text={"Create Loan"} onClickMethod={clickedSubmit} color='rgb(255, 100, 0)' />
                                     <Modal showCloseIcon={false} open={isModalOpen} onClose={() => { setIsModalOpen(false) }} center autofocus={false} classNames={{
                                         overlay: `${styles.customOverlay}`,
                                         modal: `${styles.customModal}`,
