@@ -163,8 +163,17 @@ export const apiGetHistory = async (config,acct) => {
 };
 
 export const apiApplyLoan = async (config) => {
-  try {z
+  try {
     const response = await api.get("ApplyLoan", config);
+    return response;
+  } catch (error) {
+    return error.response;
+  }
+};
+
+export const apiService = async (config) => {
+  try {
+    const response = await api.get("Service", config);
     return response;
   } catch (error) {
     return error.response;
