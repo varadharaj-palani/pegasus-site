@@ -70,11 +70,11 @@ function FdAccount() {
                     </div>
                     <div className={`${styles.itemRow}`}>
                         <p className={`${styles.itemHeader}`}>Principle</p>
-                        <p className={`${styles.itemContent}`}>{data.account.PRINCIPLE}</p>
+                        <p className={`${styles.itemContent}`}>{data.account.PRINCIPLE.toFixed(2)}</p>
                     </div>
                     <div className={`${styles.itemRow}`}>
                         <p className={`${styles.itemHeader}`}>Amount</p>
-                        <p className={`${styles.itemContent}`}>{data.account.AMOUNT}</p>
+                        <p className={`${styles.itemContent}`}>{data.account.AMOUNT.toFixed(2)}</p>
                     </div>
                     <div className={`${styles.itemRow}`}>
                         <p className={`${styles.itemHeader}`}>Term</p>

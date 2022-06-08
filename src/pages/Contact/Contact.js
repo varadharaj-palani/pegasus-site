@@ -31,7 +31,6 @@ function Contact() {
 
 
     const [loader, setloader] = useState(false);
-    let reCaptchaRef = useRef(null);
 
     const [formData, setFormdata] = useState({
         contactDetailsFormat
@@ -65,19 +64,6 @@ function Contact() {
         }
 
         // reCaptcha Validation
-        if (reCaptchaRef.current.getValue() === "") {
-            showMessage(<p>reCaptcha verification failed</p>);
-            return;
-        }
-
-        setloader(true);
-
-        // const resp = await apisendMail({
-        //   ...formData,
-        //   captcha: reCaptchaRef.current.getValue(),
-        // });
-
-        reCaptchaRef.current.reset();
 
         setloader(false);
         showMessage(<p>Our organizers will get back to you soon!.</p>, "success");

@@ -30,6 +30,10 @@ import ApplyLoan from "./pages/ApplyLoan/ApplyLoan";
 import ShowBills from "./pages/ShowBills/ShowBills";
 import PayBill from "./pages/PayBill/PayBill";
 import AddMoney from "./pages/AddMoney/AddMoney";
+import LoanPage from "./pages/LoanPage/LoanPage";
+import AddEmployee from "./pages/AddEmployee/AddEmployee";
+import AddBranch from "./pages/AddBranch/AddBranch";
+import EmployeeProcedure from "./pages/EmployeeProcedure/EmployeeProceure";
 
 const StyledApp = styled.div``;
 function App() {
@@ -43,7 +47,7 @@ function App() {
             <ReactNotifications />
             {localStorage.getItem('logbit') == 1 ?
               <CustRoutes /> : localStorage.getItem('logbit') == 2 ?
-                <EmpRoutes /> : <LogRoutes />}
+                <EmpRoutes /> : localStorage.getItem('logbit') == 3? <GodRoutes />: <LogRoutes />}
           </Router>
         </div>
       </StyledApp>
@@ -67,6 +71,18 @@ const LogRoutes = () => {
     </Routes>
   )
 }
+const GodRoutes = () => {
+  return (
+    <Routes>
+      <Route path="/" element={<Landing />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/contact" element={<Contact />} />
+      <Route path="/addEmployee" element={<AddEmployee />} />
+      <Route path="/*" element={<PageNotFound />} />
+      <Route path="/addBranch" element={<AddBranch />} />
+    </Routes>
+  )
+}
 
 const CustRoutes = () => {
   return (
@@ -83,6 +99,7 @@ const CustRoutes = () => {
       <Route path="/instapay" element={<Pay />} />
       <Route path="/bills" element={<ShowBills />} />
       <Route path="/payNewBill" element={<PayBill />} />
+      <Route path="/loans" element={<LoanPage />} />
       <Route path="/applyLoan" element={<ApplyLoan />} />
       <Route path="/*" element={<PageNotFound />} />
 
@@ -100,6 +117,7 @@ const EmpRoutes = () => {
       <Route path="/addAccount" element={<AddAccount />} />
       <Route path="/addLoan" element={<Addloanacc />} />
       <Route path="/addMoney" element={<AddMoney />} />
+      <Route path="/employeeProcedure" element={<EmployeeProcedure />} />
       <Route path="/*" element={<PageNotFound />} />
 
     </Routes>

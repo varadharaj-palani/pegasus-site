@@ -31,6 +31,16 @@ export const apiPayBill = async (data) => {
   }
 };
 
+
+export const apiPayLoan = async (data) => {
+  try {
+    const response = await api.post("payLoan", data);
+    return response;
+  } catch (error) {
+    return error.response;
+  }
+};
+
 export const apiAddAccount = async (data) => {
   try {
     const response = await api.post("addAccount", data);
@@ -114,6 +124,15 @@ export const apiProfile = async (config) => {
   }
 };
 
+export const apiGetLoans = async (config) => {
+  try {
+    const response = await api.get("loans", config);
+    return response;
+  } catch (error) {
+    return error.response;
+  }
+};
+
 export const apiGetBills = async (config) => {
   try {
     const response = await api.get("bills", config);
@@ -174,6 +193,69 @@ export const apiGetHistory = async (config,acct) => {
 export const apiApplyLoan = async (config) => {
   try {
     const response = await api.get("ApplyLoan", config);
+    return response;
+  } catch (error) {
+    return error.response;
+  }
+};
+
+export const apiAddEmployee = async (data) => {
+  try {
+    const response = await api.post("addEmployee", data);
+    return response;
+  } catch (error) {
+    return error.response;
+  }
+};
+
+export const apiAddBranch = async (data) => {
+  try {
+    const response = await api.post("addBranch", data);
+    return response;
+  } catch (error) {
+    return error.response;
+  }
+};
+
+export const apiGetBranchIfsc = async (config) => {
+  try {
+    const response = await api.get("ifsc", config);
+    return response;
+  } catch (error) {
+    return error.response;
+  }
+};
+
+export const apiGetManagerCandidates = async (config) => {
+  try {
+    const response = await api.get("manager", config);
+    return response;
+  } catch (error) {
+    return error.response;
+  }
+};
+
+export const apiCallSavingsInterest = async (config) => {
+  try {
+    const response = await api.get("callSavingsInterest", config);
+    return response;
+  } catch (error) {
+    return error.response;
+  }
+};
+
+export const apiCallLoanInterest = async (config) => {
+  try {
+    const response = await api.get("callLoanInterest", config);
+    return response;
+  } catch (error) {
+    return error.response;
+  }
+};
+
+export const apiCallFdInterest = async (config) => {
+  try {
+    const response = await api.get("callFdInterest", config);
     return response;
   } catch (error) {
     return error.response;
