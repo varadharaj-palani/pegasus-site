@@ -71,7 +71,7 @@ function SavAccount() {
                     </div>
                     <div className={`${styles.itemRow}`}>
                         <p className={`${styles.itemHeader}`}>Balance</p>
-                        <p className={`${styles.itemContent}`}>{data.account.BALANCE}</p>
+                        <p className={`${styles.itemContent}`}>{data.account.BALANCE.toFixed(2)}</p>
                     </div>
                     <div className={`${styles.itemRow}`}>
                         <p className={`${styles.itemHeader}`}>Status</p>

@@ -21,7 +21,7 @@ function Historyrecord(props) {
                 <td>{props.name}</td>
                 <td>{props.aacno}</td>
                 <td>{props.ttype}</td>
-                <td>{props.amount}</td>
+                <td>{props.amount.toFixed(2)}</td>
                 <td>{props.date.slice(0, 10)}</td>
             </tr>
         </>
