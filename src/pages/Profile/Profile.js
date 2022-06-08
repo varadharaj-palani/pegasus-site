@@ -14,7 +14,8 @@ function Profile() {
     };
     const dataFormat = {
         'customer': {},
-        'account': {},
+        'savingsacc': {},
+       
 
     };
     const [data, setData] = useState(dataFormat);

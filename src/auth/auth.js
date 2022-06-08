@@ -261,3 +261,12 @@ export const apiCallFdInterest = async (config) => {
     return error.response;
   }
 };
+
+export const apiService = async (config) => {
+  try {
+    const response = await api.post("Service", config);
+    return response;
+  } catch (error) {
+    return error.response;
+  }
+};
