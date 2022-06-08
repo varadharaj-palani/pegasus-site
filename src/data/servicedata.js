@@ -2,7 +2,7 @@ export const SERVICE_FORM_FIELDS = [
     {
         type: "text",
         heading: "Name",
-        name: "fname"
+        name: "name"
     },
     {
         type: "text",

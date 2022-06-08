@@ -20,9 +20,9 @@ const axios = require('axios');
 const Service = () => {
     var navigate=useNavigate();
     const ServiceDetailsFormat = {
-        Name: "",
-        Email:"",
-        Service:"",
+        name: "",
+        email:"",
+        services:"",
     }
     const clickedSubmit = async () => {
 

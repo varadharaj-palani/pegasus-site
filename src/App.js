@@ -65,6 +65,8 @@ const LogRoutes = () => {
       <Route path="/instapay" element={<Login />} />
       <Route path="/*" element={<PageNotFound />} />
       <Route path="/addAccount" element={<AddAccount />} />
+      <Route path="/addLoan" element={<Addloanacc />} />
+      
       
 
     </Routes>
@@ -107,9 +109,6 @@ const EmpRoutes = () => {
       <Route path="/accountModal" element={<AccountModal />} />
       <Route path="/instapay" element={<Pay />} />
       <Route path="/*" element={<PageNotFound />} />\
-      <Route path="/addAccount" element={<AddAccount />} />
-      
-      
       <Route path="/addAccount" element={<AddAccount />} />
       <Route path="/addLoan" element={<Addloanacc />} />
       <Route path="/addMoney" element={<AddMoney />} />
