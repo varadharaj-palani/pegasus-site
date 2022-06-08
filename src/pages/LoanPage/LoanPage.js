@@ -126,9 +126,7 @@ function LoanPage() {
 
 
             </table>
-            <div style={{ display: "inline-block", margin: "auto" }}>
-                <Button text='APPLY NEW LOAN' onClickMethod={() => navigate('/applyLoan')} color={"#70AD47"} />
-            </div>
+            
         </div>
         {modal && <Modal datum={datum} />}
     </>)

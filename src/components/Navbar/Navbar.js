@@ -67,6 +67,8 @@ function Navbar() {
           {logbit == 1 &&<a href="/selectAccount">History</a>}
           {logbit == 3 && <a href = "/addEmployee">Add Employee</a>}
           {logbit == 3 && <a href = "/addBranch">Add Branch</a>}
+          {logbit == 2 &&<a href="/addMoney">Add Money</a>}
+          {logbit == 2 &&<a href="/employeeProcedure">Procedures</a>}
           {<a href="/contact">Contact  </a>}
           {<a href='/login' onClick={() => {
             if (bool) { localStorage.clear() } 

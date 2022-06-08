@@ -66,7 +66,7 @@ function Contact() {
         // reCaptcha Validation
 
         setloader(false);
-        showMessage(<p>Our organizers will get back to you soon!.</p>, "success");
+        showMessage(<p>Your Query has been Submitted. We will get back to you soon!.</p>, "success");
         setFormdata(contactDetailsFormat);
     };
 
