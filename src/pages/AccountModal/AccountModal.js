@@ -16,9 +16,9 @@ function Print(props) {
         acct = props.atom.ACCNO;
         return (
             <div className={`${styles.itemRow}`}>
-                <Link to={`../account/savings/${acct}`}>
-                    <p className={`${styles.itemHeader}`}>{props.atom.ACCNO}</p>
-                    <p className={`${styles.itemContent}`}>{props.atom.ACCTYPE}</p>
+                <Link className={`${styles.itemRow}`} to={`../account/savings/${acct}`}>
+                    <div className={`${styles.itemHeader}`}>{props.atom.ACCNO}</div>
+                    <div className={`${styles.itemContent}`}>{props.atom.ACCTYPE}</div>
                 </Link>
             </div>
         )
@@ -27,7 +27,7 @@ function Print(props) {
         acct = props.atom.ACCNO;
         return (
             <div className={`${styles.itemRow}`}>
-                <Link to={`../account/fd/${acct}`}>
+                <Link className={`${styles.itemRow}`} to={`../account/fd/${acct}`}>
                     <p className={`${styles.itemHeader}`}>{props.atom.ACCNO}</p>
                     <p className={`${styles.itemContent}`}>{props.atom.ACCTYPE}</p>
                 </Link>
@@ -103,6 +103,10 @@ function AccountModal() {
                 <Heading text="ACCOUNTS" />
                 {bit && (<div className={`${styles.maincontainer}`}>
                     <div className={`${styles.profilecontainer}`}>
+                        <div className={`${styles.itemRow}`}>
+                            <div className={`${styles.itemHeader}`}><h2>ACCOUNT</h2></div>
+                            <div style={{ marginLeft: '2rem' }} className={`${styles.itemContent}`}><h2 >TYPE</h2></div>
+                        </div>
                         <DispData data={data} />
                     </div>
                 </div>)}

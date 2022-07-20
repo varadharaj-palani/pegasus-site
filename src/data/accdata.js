@@ -75,11 +75,6 @@ export const FdAcc = [
         name: "principle"
     },
     {
-        type: "text",
-        heading: "Term",
-        name: "term"
-    },
-    {
         type: "date",
         heading: "Deposit Date",
         name: "depdate"
@@ -96,6 +91,17 @@ export const AccType = [
         type: "dropdown",
         heading: "Account Type",
         name: "accType",
-        dropdownValues: ["Savings","FD"]
-    }
+        dropdownValues: ["Select","Savings","FD"]
+    },
+    
+]
+
+export const Term = [
+    {
+        type: "dropdown",
+        heading: "Term",
+        name: "term",
+        dropdownValues: ["Select","Quarterly","Healfyearly","Yearly"]
+    },
+    
 ]

@@ -14,6 +14,7 @@
 .form_container > select,
 .textarea {
   width:100%;
+  height: 50%;
   background-color: #090c1086;
   outline: var(--bg) !important;
   border: 1px solid #090c10c9;

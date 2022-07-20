@@ -82,7 +82,7 @@ function FormField({
                                     memberNumber: misc?.memberNumber,
                                 })
                             }
-                        >
+                        >{console.log(dropdownValues)}
                             {dropdownValues.map((item, index) => {
                                 return (
                                     <option key={index} value={item}>
@@ -119,6 +119,7 @@ function FormField({
                         <input
                             type={type}
                             value={value[name]}
+                            min={0}
                             onChange={(e) =>
                                 setter({
                                     key: name,
